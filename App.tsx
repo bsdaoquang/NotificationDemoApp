@@ -2,6 +2,8 @@ import {View, Text, StyleSheet} from 'react-native';
 import React, {useEffect, useState} from 'react';
 import {requestUserPermission} from './src/utils/notificationHelper';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import HomeScreen from './src/screens/HomeScreen';
+import HomeNavigator from './src/navigator/HomeNavigator';
 
 const App = () => {
   const [token, setToken] = useState('');
@@ -10,19 +12,7 @@ const App = () => {
     requestUserPermission();
   }, []);
 
-  // const getFcmToken = async () => {
-  //   const token = await AsyncStorage.getItem('fcmToken');
-
-  //   if (token) {
-  //     setToken(token);
-  //   }
-  // };
-
-  return (
-    <View style={[styles.conntainer]}>
-      <Text style={[styles.title]}>Notification App</Text>
-    </View>
-  );
+  return <HomeNavigator />;
 };
 
 export default App;
